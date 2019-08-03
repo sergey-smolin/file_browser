@@ -4,17 +4,9 @@ import Loader from './components/Loader/Loader';
 import GoUp from './components/GoUp/GoUp';
 import { connect } from 'react-redux';
 import './App.css';
+import { parseQueryString } from './utils/utils';
 
 const clientId = '0e08cd89ac3a4aba9b9711ab3b4136fc';
-
-function parseQueryString (queryString) {
-  const pairs = queryString.split('&');
-  return pairs.reduce((memo, next) => {
-    const keyAndValue = next.split('=');
-    memo[keyAndValue[0]] = keyAndValue[1];
-    return memo;
-  },{})
-}
 
 class App extends Component {
   constructor () {

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     currentDir: '/',
-    error: null,
+    error: '',
     folders: []
 };
 
@@ -20,7 +20,7 @@ export default function rootReducer(state = initialState, action) {
     case REQUEST_ITEMS_SUCCESS:
       return {
         ...state,
-        error: null,
+        error: '',
         loading: false,
         currentDir: action.payload.currentDir,
         folders: action.payload.folders

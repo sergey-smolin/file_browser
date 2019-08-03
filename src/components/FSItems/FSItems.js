@@ -20,14 +20,11 @@ class FSItems extends Component {
   }
   render() {
     const { folders, error } = this.props;
+    let result;
     if (error) {
-      return <div>
-        {error}
-      </div>
-    }
-    return (
-      <div className="container">
-        <ul className="list-group">
+      result = error
+    } else {
+      result = <ul className="list-group">
           {folders.map(folder =>
           {
             return <FSItem
@@ -38,6 +35,10 @@ class FSItems extends Component {
           }
             )}
         </ul>
+    }
+    return (
+      <div className="container">
+        {result}
       </div>
     );
   }

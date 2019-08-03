@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { getHumanReadableSize } from '../../utils/utils';
 
 class FSItem extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class FSItem extends Component {
     return this.props.type === 'dir' ? <div className="item-icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd"><path d="M0 1h6l1.5 2H16v11H0z" fill="#FDEFB2"/><path d="M0 1h6l1.5 2H16v11H0z" fillOpacity=".3" fill="#FFDD0D"/><path stroke="#EFD429" d="M.5 1.5v12h15v-10H7.25l-1.5-2z"/></g></svg></div> : null;
   }
   getItemSize() {
-    return this.props.type === 'file' ? <div className="item_size">{this.props.size}</div> : null;
+    return this.props.type === 'file' ? <div className="item_size">{getHumanReadableSize(this.props.size)}</div> : null;
   }
   render() {
     const { type, name } = this.props;
