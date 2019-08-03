@@ -38,7 +38,9 @@ export const getItems = (path = '/') => dispatch => {
       }
       dispatch(requestItemsSuccess(res._embedded.items, newPath));
     },
-    err => dispatch(requestItemsError(err))
+    err => {
+      dispatch(requestItemsError(err))
+    }
   );
 }
 

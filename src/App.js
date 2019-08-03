@@ -16,7 +16,7 @@ class App extends Component {
       token = parseQueryString(window.location.hash.substring(1)).access_token;
       if (token) {
         localStorage.setItem('accessToken', token);
-        window.location.replace('/')
+        window.history.replaceState({}, '', '/');
         return;
       }
     }
